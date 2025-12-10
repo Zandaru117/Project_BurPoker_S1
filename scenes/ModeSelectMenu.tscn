@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://cywa2ncv2wqxd"]
+
+[ext_resource type="Script" uid="uid://c4mhr4cyiufjo" path="res://scripts/ui/screens/ModeSelectMenu.gd" id="1_jm52e"]
+
+[node name="ModeSelectMenu" type="Node2D"]
+script = ExtResource("1_jm52e")
+
+[node name="PlayerVSComp" type="Button" parent="."]
+offset_left = 534.0
+offset_top = 195.0
+offset_right = 703.0
+offset_bottom = 265.0
+text = "Player VS Comp"
+
+[node name="PalyerVSPlayer" type="Button" parent="."]
+offset_left = 539.0
+offset_top = 334.0
+offset_right = 686.0
+offset_bottom = 385.0
+text = "Online???"
+
+[node name="BackToMainMenu" type="Button" parent="."]
+offset_left = 543.0
+offset_top = 428.0
+offset_right = 694.0
+offset_bottom = 475.0
+text = "Back to menu"
+
+[connection signal="pressed" from="PlayerVSComp" to="." method="_on_player_vs_comp_pressed"]
+[connection signal="pressed" from="PalyerVSPlayer" to="." method="_on_palyer_vs_player_pressed"]
+[connection signal="pressed" from="BackToMainMenu" to="." method="_on_back_to_main_menu_pressed"]
