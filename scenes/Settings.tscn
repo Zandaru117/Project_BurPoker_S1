@@ -1,3 +1,15 @@
-[gd_scene load_steps=0 format=3 uid="uid://bidbu46k8455r"]
+[gd_scene load_steps=2 format=3 uid="uid://d0431a8sk31t2"]
+
+[ext_resource type="Script" uid="uid://ddv0c7lls2it2" path="res://scripts/ui/screens/Settings.gd" id="1_rbmmp"]
 
 [node name="Settings" type="Node2D"]
+script = ExtResource("1_rbmmp")
+
+[node name="BackToMenuButton" type="Button" parent="."]
+offset_left = 35.0
+offset_top = 35.0
+offset_right = 179.0
+offset_bottom = 102.0
+text = "Back to menu"
+
+[connection signal="pressed" from="BackToMenuButton" to="." method="_on_back_to_menu_button_pressed"]
