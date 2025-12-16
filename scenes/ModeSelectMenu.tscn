@@ -6,24 +6,24 @@
 script = ExtResource("1_jm52e")
 
 [node name="PlayerVSComp" type="Button" parent="."]
-offset_left = 534.0
-offset_top = 195.0
-offset_right = 703.0
-offset_bottom = 265.0
+offset_left = 495.0
+offset_top = 175.0
+offset_right = 661.0
+offset_bottom = 262.0
 text = "Player VS Comp"
 
 [node name="PalyerVSPlayer" type="Button" parent="."]
-offset_left = 539.0
-offset_top = 334.0
-offset_right = 686.0
-offset_bottom = 385.0
+offset_left = 495.0
+offset_top = 300.0
+offset_right = 661.0
+offset_bottom = 387.0
 text = "Online???"
 
 [node name="BackToMainMenu" type="Button" parent="."]
-offset_left = 543.0
-offset_top = 428.0
-offset_right = 694.0
-offset_bottom = 475.0
+offset_left = 495.0
+offset_top = 425.0
+offset_right = 661.0
+offset_bottom = 512.0
 text = "Back to menu"
 
 [connection signal="pressed" from="PlayerVSComp" to="." method="_on_player_vs_comp_pressed"]

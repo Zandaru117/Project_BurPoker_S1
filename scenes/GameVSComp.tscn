@@ -8,8 +8,8 @@ script = ExtResource("1_0r0sg")
 [node name="BackToMenuButton" type="Button" parent="."]
 offset_left = 35.0
 offset_top = 35.0
-offset_right = 160.0
-offset_bottom = 90.0
+offset_right = 179.0
+offset_bottom = 102.0
 text = "Back to menu"
 
 [connection signal="pressed" from="BackToMenuButton" to="." method="_on_back_to_menu_button_pressed"]
