@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://2gymps8mmgsb"]
+[gd_scene load_steps=4 format=3 uid="uid://2gymps8mmgsb"]
 
-[ext_resource type="Script" uid="uid://dhqis3thet8ur" path="res://scripts/ui/screens/GameVSComp.gd" id="1_0r0sg"]
+[ext_resource type="Script" uid="uid://btqeoeugn3h8u" path="res://scripts/game/Game_VS_Comp.gd" id="1_lpfnd"]
+[ext_resource type="Script" uid="uid://56moeaex7uaq" path="res://scripts/game/Deck.gd" id="2_xiwkc"]
+[ext_resource type="PackedScene" uid="uid://dyn05tsxr2a55" path="res://scenes/Card.tscn" id="3_xiwkc"]
 
 [node name="GameVSComp" type="Node2D"]
-script = ExtResource("1_0r0sg")
+script = ExtResource("1_lpfnd")
 
 [node name="BackToMenuButton" type="Button" parent="."]
 offset_left = 35.0
@@ -11,5 +13,10 @@ offset_top = 35.0
 offset_right = 179.0
 offset_bottom = 102.0
 text = "Back to menu"
+
+[node name="Deck" type="Node" parent="."]
+script = ExtResource("2_xiwkc")
+card_scene = ExtResource("3_xiwkc")
+metadata/_custom_type_script = "uid://56moeaex7uaq"
 
 [connection signal="pressed" from="BackToMenuButton" to="." method="_on_back_to_menu_button_pressed"]
