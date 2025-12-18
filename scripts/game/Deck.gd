@@ -3,6 +3,7 @@ class_name Deck
 
 @export var cards: Array = []
 @export var card_scene: PackedScene
+@export var dropzone: DropZone
 
 func initialize_deck():
 	for suit in Card.Suit.size():

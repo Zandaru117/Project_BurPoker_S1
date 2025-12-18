@@ -2,6 +2,8 @@ extends Node2D
 @onready var deck: Deck = $Deck
 @onready var hand: Hand = $Hand
 @export var hand_scene: PackedScene
+@onready var player_dropzone: DropZone = $Player_DropZone
+@onready var enemy_dropzone: DropZone = $Enemy_DropZone
 
 var hands: Array[Hand] = []
 
@@ -19,13 +21,13 @@ func _ready() -> void:
 	hands[0].hand_position = Vector2(500, 100 + 0*400)
 	add_child(hands[0])
 	#print("POOP %s" % [hands[i].hand_position])
-	hands[0].deal_cards(false)
+	hands[0].deal_cards(false, enemy_dropzone)
 	
 	var player_hand: Hand = hand_scene.instantiate()
 	player_hand.hand_position = Vector2(500, 550)
 	player_hand.is_player_hand = true
 	add_child(player_hand)
-	player_hand.deal_cards(true)
+	player_hand.deal_cards(true, player_dropzone)
 	#print("первому раздал")
 	#for i in range(2):
 	#	for j in range(4):

@@ -8,10 +8,11 @@ var suit: Suit
 var rank: Rank
 var is_player_card: bool
 var back_texture: Texture2D = load( "res://assets/cards/card_back.png")
+var dropzone: DropZone = null
 
 var initial_position: Vector2
 
-@onready var sprite: Sprite2D = $Sprite2D   # ← ВАЖНО
+@onready var sprite: Sprite2D = $Sprite2D
 
 func setup(new_suit: Suit, new_rank: Rank):
 	suit = new_suit
@@ -50,12 +51,16 @@ func _input_event(viewport, event, shape_idx):
 		if event.pressed:
 			is_dragging = true
 			drag_offset = global_position - get_global_mouse_position()
-			z_index = 1000  # поверх других
+			z_index = 1000 # поверх других
 		else:
 			is_dragging = false
 			z_index = 0
 			stop_drag()
 
+
 func stop_drag():
 	is_dragging = false
-	global_position = initial_position
+	if dropzone.mouse_inside:
+		global_position = dropzone.global_position
+	else:
+		global_position = initial_position

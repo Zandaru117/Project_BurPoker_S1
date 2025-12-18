@@ -13,15 +13,16 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 
-func deal_cards(is_p_card: bool):
+func deal_cards(is_p_card: bool, zone: Area2D):
 	for i in range(max_cards):
 		var card = deck.cards.pop_back()
-		add_card(card, i, is_p_card)
+		add_card(card, i, is_p_card, zone)
 
-func add_card(card: Card, index: int, is_p_card: bool):
+func add_card(card: Card, index: int, is_p_card: bool, zone: Area2D):
 	hand_cards.append(card)
 	card.position = Vector2(hand_position[0] + 50* index, hand_position[1])
 	card.is_player_card = is_p_card
+	card.dropzone = zone
 	add_child(hand_cards[index])
 	#print("поставил на [%s, %s]" % [hand_position[0] + hand_position[0] * index, hand_position[1]])
 	card.initial_position = card.position
