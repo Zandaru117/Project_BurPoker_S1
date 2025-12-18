@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dncaxcn7domq0"]
+
+[ext_resource type="Texture2D" uid="uid://ctvpmwgxp3kqq" path="res://assets/cards/tableau_card_spot.png" id="1_vrmlu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_omn3e"]
+size = Vector2(130, 190)
+
+[node name="DropZone" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_omn3e")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_vrmlu")
