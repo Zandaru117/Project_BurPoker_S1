@@ -34,8 +34,28 @@ func _ready() -> void:
 	#		print(hands[i].hand_cards[j].position[0], hands[i].hand_cards[j].position[1])
 	#print(deck.cards.size())
 	pass # Replace with function body.
-
-
+var check_cards: Array[Card] = []
+var round_count = 0
+var score = 0
+func check(card: Card):
+	#card.z_index = round_count * 1000
+	round_count += 1
+	hands[0].hand_cards[hands[0].hand_cards.size()-1].position = hands[0].hand_cards[hands[0].hand_cards.size()-1].dropzone.position
+	hands[0].hand_cards[hands[0].hand_cards.size()-1].sprite.texture = hands[0].hand_cards[hands[0].hand_cards.size()-1].main_texture
+	check_cards.append(card)
+	check_cards.append(hands[0].hand_cards[hands[0].hand_cards.size()-1])
+	hands[0].hand_cards.pop_back()
+	if check_cards[0].rank > check_cards[1].rank:
+		print("You won")
+		score += 1
+	else:
+		print("You losed")
+	print("%s:%s" % [score, round_count - score])
+	await get_tree().create_timer(1.0).timeout
+	check_cards[0].queue_free()
+	check_cards[1].queue_free()
+	check_cards = []
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass

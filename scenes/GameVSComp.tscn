@@ -30,7 +30,7 @@ metadata/_custom_type_script = "uid://bbw17kg7dhx3w"
 [node name="Player_DropZone" parent="." instance=ExtResource("6_ihu2o")]
 position = Vector2(476, 310)
 
-[node name="DropZone" parent="." instance=ExtResource("6_ihu2o")]
+[node name="Enemy_DropZone" parent="." instance=ExtResource("6_ihu2o")]
 position = Vector2(640, 310)
 
 [connection signal="pressed" from="BackToMenuButton" to="." method="_on_back_to_menu_button_pressed"]

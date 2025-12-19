@@ -23,6 +23,10 @@ func add_card(card: Card, index: int, is_p_card: bool, zone: Area2D):
 	card.position = Vector2(hand_position[0] + 50* index, hand_position[1])
 	card.is_player_card = is_p_card
 	card.dropzone = zone
+	for i in range(hand_cards.size()):
+		hand_cards[i].start_z_index = 3-i
+		hand_cards[i].z_index = 3-i
+		#print(Card.Suit.keys()[hand_cards[i].suit], Card.Rank.keys()[hand_cards[i].rank], hand_cards[i].start_z_index)
 	add_child(hand_cards[index])
 	#print("поставил на [%s, %s]" % [hand_position[0] + hand_position[0] * index, hand_position[1]])
 	card.initial_position = card.position
