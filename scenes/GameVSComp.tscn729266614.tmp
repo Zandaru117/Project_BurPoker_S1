@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://2gymps8mmgsb"]
+
+[ext_resource type="Script" uid="uid://btqeoeugn3h8u" path="res://scripts/game/Game_VS_Comp.gd" id="1_lpfnd"]
+[ext_resource type="PackedScene" uid="uid://c1716d52i0x8e" path="res://scenes/Hand.tscn" id="2_qrow6"]
+[ext_resource type="Script" uid="uid://56moeaex7uaq" path="res://scripts/game/Deck.gd" id="2_xiwkc"]
+[ext_resource type="PackedScene" uid="uid://dyn05tsxr2a55" path="res://scenes/Card.tscn" id="3_xiwkc"]
+[ext_resource type="Script" uid="uid://bbw17kg7dhx3w" path="res://scripts/game/Hand.gd" id="4_uvkcn"]
+[ext_resource type="PackedScene" path="res://scenes/DropZone.tscn" id="6_ihu2o"]
+
+[node name="GameVSComp" type="Node2D"]
+script = ExtResource("1_lpfnd")
+hand_scene = ExtResource("2_qrow6")
+
+[node name="BackToMenuButton" type="Button" parent="."]
+offset_left = 35.0
+offset_top = 35.0
+offset_right = 179.0
+offset_bottom = 102.0
+text = "Back to menu"
+
+[node name="Deck" type="Node" parent="."]
+script = ExtResource("2_xiwkc")
+card_scene = ExtResource("3_xiwkc")
+metadata/_custom_type_script = "uid://56moeaex7uaq"
+
+[node name="Hand" type="Node" parent="."]
+script = ExtResource("4_uvkcn")
+metadata/_custom_type_script = "uid://bbw17kg7dhx3w"
+
+[node name="Player_DropZone" parent="." instance=ExtResource("6_ihu2o")]
+position = Vector2(476, 310)
+
+[node name="Enemy_DropZone" parent="." instance=ExtResource("6_ihu2o")]
+position = Vector2(640, 310)
+
+[node name="Score" type="Label" parent="."]
+offset_left = 83.0
+offset_top = 177.0
+offset_right = 218.0
+offset_bottom = 241.0
+
+[connection signal="pressed" from="BackToMenuButton" to="." method="_on_back_to_menu_button_pressed"]

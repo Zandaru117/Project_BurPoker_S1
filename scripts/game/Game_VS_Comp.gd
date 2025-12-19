@@ -4,11 +4,13 @@ extends Node2D
 @export var hand_scene: PackedScene
 @onready var player_dropzone: DropZone = $Player_DropZone
 @onready var enemy_dropzone: DropZone = $Enemy_DropZone
+@onready var screen_score: Label = $Score
 
 var hands: Array[Hand] = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	screen_score.text = "Счёт"
 	deck.initialize_deck()
 	deck.shuffle()
 	#print(deck.cards)
@@ -46,10 +48,12 @@ func check(card: Card):
 	check_cards.append(hands[0].hand_cards[hands[0].hand_cards.size()-1])
 	hands[0].hand_cards.pop_back()
 	if check_cards[0].rank > check_cards[1].rank:
+		
 		print("You won")
 		score += 1
 	else:
 		print("You losed")
+	screen_score.text = "Счёт %s:%s" % [score, round_count - score]
 	print("%s:%s" % [score, round_count - score])
 	await get_tree().create_timer(1.0).timeout
 	check_cards[0].queue_free()
@@ -59,3 +63,6 @@ func check(card: Card):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+	
+func _on_back_to_menu_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/MainMenu.tscn")
