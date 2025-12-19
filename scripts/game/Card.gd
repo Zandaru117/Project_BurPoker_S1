@@ -75,5 +75,6 @@ func stop_drag():
 	if dropzone.mouse_inside:
 		global_position = dropzone.global_position
 		get_parent().get_parent().check(self)
+		is_player_card = false
 	else:
 		global_position = initial_position
