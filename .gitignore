@@ -1,3 +1,11 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+# Скомпилированные файлы
+*.exe
+*.pck
+*.zip
+*.apk
+
+# Godot конфигурационные файлы
+export_presets.cfg
