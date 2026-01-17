@@ -65,7 +65,6 @@ func _unhandled_input(event):
 	if event is InputEventMouseButton \
 	and event.button_index == MOUSE_BUTTON_LEFT \
 	and not event.pressed:
-
 		stop_drag()
 
 func stop_drag():
@@ -73,8 +72,19 @@ func stop_drag():
 	z_index = start_z_index
 	active_card = null
 	if dropzone.mouse_inside:
-		global_position = dropzone.global_position
-		get_parent().get_parent().check(self)
-		is_player_card = false
+		if get_parent().get_parent().is_my_turn:
+			print("stop drag")
+			global_position = dropzone.global_position
+			get_parent().get_parent().check(self)
+		else:
+			if get_parent().get_parent().what_need == "same":
+				if self.suit == get_parent().get_parent().check_cards[0].suit:
+					global_position = dropzone.global_position
+					get_parent().get_parent().check(self)
+				else:
+					global_position = initial_position
+			if get_parent().get_parent().what_need == "any":
+				global_position = dropzone.global_position
+				get_parent().get_parent().check(self)
 	else:
 		global_position = initial_position
