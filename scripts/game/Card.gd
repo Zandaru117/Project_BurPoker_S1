@@ -83,6 +83,11 @@ func stop_drag():
 					get_parent().get_parent().check(self)
 				else:
 					global_position = initial_position
+			if get_parent().get_parent().what_need == "trump":
+				if self.suit == get_parent().get_parent().trump:
+					global_position = dropzone.global_position
+					get_parent().get_parent().check(self)
+				else: global_position = initial_position
 			if get_parent().get_parent().what_need == "any":
 				global_position = dropzone.global_position
 				get_parent().get_parent().check(self)

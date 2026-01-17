@@ -10,10 +10,17 @@ var hands: Array[Hand] = []
 var is_my_turn: bool = true
 var number_of_players: int = 2
 var player_hand: Hand
+var trump: int
+var trump_string: String
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	screen_score.text = "Счёт"
+	trump = randi_range(0, 3)
+	if trump == 0: trump_string = "Hearts"
+	if trump == 1: trump_string = "Diamonds"
+	if trump == 2: trump_string = "Clubs"
+	if trump == 3: trump_string = "Spades"
+	screen_score.text = "Козырь: %s\nСчёт" % trump_string
 	deck.initialize_deck()
 	deck.shuffle()
 	#print(deck.cards)
@@ -87,6 +94,16 @@ func enemys_turn(s: int):
 				print("мэтч")
 				break
 		if fl:
+			for j in range(hands[i].hand_cards.size()-1):
+				if hands[i].hand_cards[j].suit == trump:
+					hands[i].hand_cards[j].position = hands[i].hand_cards[j].dropzone.position
+					hands[i].hand_cards[j].sprite.texture = hands[i].hand_cards[j].main_texture
+					check_cards.append(hands[i].hand_cards[j])
+					hands[i].hand_cards.remove_at(j)
+					fl = false
+					print("мэтч")
+					break
+		if fl:
 			hands[i].hand_cards[0].position = hands[i].hand_cards[0].dropzone.position
 			hands[i].hand_cards[0].sprite.texture = hands[i].hand_cards[0].main_texture
 			check_cards.append(hands[i].hand_cards[0])
@@ -101,13 +118,17 @@ func enemy_goes():
 		hands[i].hand_cards[0].sprite.texture = hands[i].hand_cards[0].main_texture
 		check_cards.append(hands[i].hand_cards[0])
 		hands[i].hand_cards.remove_at(0)
-	var k = 0
+	var kfsuit = 0
+	var ktrump = 0
 	for i in range(player_hand.hand_cards.size()):
 		print(player_hand.hand_cards)
 		print(check_cards)
 		if player_hand.hand_cards[i].suit == check_cards[check_cards.size()-1].suit:
-			k+=1
-	if k > 0: what_need = "same"
+			kfsuit += 1
+		if player_hand.hand_cards[i].suit == trump:
+			ktrump += 1
+	if kfsuit > 0: what_need = "same"
+	elif ktrump > 0: what_need = "trump"
 	else: what_need = "any"
 	pass
 
@@ -133,6 +154,10 @@ func check(card: Card):
 		else:
 			print("You losed")
 			is_my_turn = false
+	elif check_cards[check_cards.size()-2].suit == trump: is_my_turn = false
+	elif check_cards[check_cards.size()-1].suit == trump:
+		score += 1
+		is_my_turn = true
 	else:
 		if is_my_turn:
 			score += 1
@@ -149,7 +174,7 @@ func check(card: Card):
 	var c1 = check_cards[0]
 	var c2 = check_cards[1]
 	check_cards = []
-	screen_score.text = "Счёт %s:%s" % [score, circle_count - score]
+	screen_score.text = "Козырь: %s\nСчёт %s:%s" % [trump_string, score, circle_count - score]
 	print("%s:%s" % [score, circle_count - score])
 	await get_tree().create_timer(1.0).timeout
 	
