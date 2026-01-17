@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://56moeaex7uaq" path="res://scripts/game/Deck.gd" id="2_xiwkc"]
 [ext_resource type="PackedScene" uid="uid://dyn05tsxr2a55" path="res://scenes/Card.tscn" id="3_xiwkc"]
 [ext_resource type="Script" uid="uid://bbw17kg7dhx3w" path="res://scripts/game/Hand.gd" id="4_uvkcn"]
-[ext_resource type="PackedScene" path="res://scenes/DropZone.tscn" id="6_ihu2o"]
+[ext_resource type="PackedScene" uid="uid://dncaxcn7domq0" path="res://scenes/DropZone.tscn" id="6_ihu2o"]
 
 [node name="GameVSComp" type="Node2D"]
 script = ExtResource("1_lpfnd")

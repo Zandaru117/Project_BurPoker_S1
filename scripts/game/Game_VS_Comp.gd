@@ -47,18 +47,33 @@ func check(card: Card):
 	check_cards.append(card)
 	check_cards.append(hands[0].hand_cards[hands[0].hand_cards.size()-1])
 	hands[0].hand_cards.pop_back()
-	if check_cards[0].rank > check_cards[1].rank:
+	if check_cards[check_cards.size()-2].rank > check_cards[check_cards.size()-1].rank:
 		
 		print("You won")
 		score += 1
 	else:
 		print("You losed")
+		
+	#for i in range(check_cards.size()):
+	#	print(check_cards[i].rank, ' ', check_cards[i].suit)
+	
+	
+	var c1 = check_cards[0]
+	var c2 = check_cards[1]
+	
+	check_cards = []
 	screen_score.text = "Счёт %s:%s" % [score, round_count - score]
 	print("%s:%s" % [score, round_count - score])
+	
 	await get_tree().create_timer(1.0).timeout
-	check_cards[0].queue_free()
-	check_cards[1].queue_free()
-	check_cards = []
+	
+	#check_cards[0].queue_free()
+	#check_cards[1].queue_free()
+	c1.queue_free()
+	c2.queue_free()
+	#check_cards.remove_at(0)
+	#check_cards.remove_at(1)
+	#check_cards = []
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
