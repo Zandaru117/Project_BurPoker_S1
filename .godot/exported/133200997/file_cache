@@ -1,0 +1,9 @@
+res://scenes/Card.tscn::dbfc03c2bf35ba3b82cb027d481cd042::1766091527::res://.godot/exported/133200997/export-f33c488216df1e0d3d661b1076b19164-Card.scn
+res://scenes/deck.tscn::5d3f997ebc46fa16f4818586971758aa::1766091527::res://.godot/exported/133200997/export-5b3d4e1cac2d76a83278821172d47e7d-deck.scn
+res://scenes/DropZone.tscn::f513e96d2f63d58530030005d90a1029::1766129742::res://.godot/exported/133200997/export-e4c70c32e5ccee4474a3418f5d85c935-DropZone.scn
+res://scenes/GameVSComp.tscn::2a1555acb908d1aef6fdaff559ff1e71::1768654561::res://.godot/exported/133200997/export-99ef8686771fd601b30f118345a29780-GameVSComp.scn
+res://scenes/Hand.tscn::dc4b7d7720f609d5f6395c2203a3339c::1766091527::res://.godot/exported/133200997/export-e0e349d7d3db056f9796de3dd20a4ede-Hand.scn
+res://scenes/MainMenu.tscn::a9fbc5c7aaf005cd0d3939cb07c36379::1768674263::res://.godot/exported/133200997/export-23c8b2a48d59a0cd018bd8ad5ce7794c-MainMenu.scn
+res://scenes/ModeSelectMenu.tscn::7e69ec6a89440a265a16cc64fa02910f::1768675140::res://.godot/exported/133200997/export-86b08965f149ce71ccf293feb971608a-ModeSelectMenu.scn
+res://scenes/Settings.tscn::1182318cdf51a302d37928a9baa00f7e::1768675271::res://.godot/exported/133200997/export-aa0bebfe53779e3753807371083ff1c1-Settings.scn
+res://scripts/ui/screens/Settings.tscn::9edf0f392407b7986f34b536a51b9d60::1768665854::res://.godot/exported/133200997/export-439c93425202dd0bd0107770a543a6eb-Settings.scn

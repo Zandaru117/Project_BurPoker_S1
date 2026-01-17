@@ -1,9 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://cywa2ncv2wqxd"]
+[gd_scene load_steps=3 format=3 uid="uid://cywa2ncv2wqxd"]
 
 [ext_resource type="Script" uid="uid://c4mhr4cyiufjo" path="res://scripts/ui/screens/ModeSelectMenu.gd" id="1_jm52e"]
+[ext_resource type="Texture2D" uid="uid://d7jv1r7l6foc" path="res://assets/background/background1.jpg" id="2_5q4uq"]
 
 [node name="ModeSelectMenu" type="Node2D"]
 script = ExtResource("1_jm52e")
+
+[node name="Background1" type="Sprite2D" parent="."]
+position = Vector2(582.02686, 288.25)
+scale = Vector2(1.1367712, 1.1367712)
+texture = ExtResource("2_5q4uq")
 
 [node name="PlayerVSComp" type="Button" parent="."]
 offset_left = 495.0

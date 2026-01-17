@@ -1,9 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://d0431a8sk31t2"]
+[gd_scene load_steps=3 format=3 uid="uid://d0431a8sk31t2"]
 
 [ext_resource type="Script" uid="uid://ddv0c7lls2it2" path="res://scripts/ui/screens/Settings.gd" id="1_rbmmp"]
+[ext_resource type="Texture2D" uid="uid://di5syi0krn8iw" path="res://assets/background/background2.jpg" id="2_i47rn"]
 
 [node name="Settings" type="Node2D"]
 script = ExtResource("1_rbmmp")
+
+[node name="Background2" type="Sprite2D" parent="."]
+position = Vector2(710, 159)
+scale = Vector2(1.3761905, 1.3761905)
+texture = ExtResource("2_i47rn")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 475.0
+offset_top = 86.0
+offset_right = 681.0
+offset_bottom = 588.0
+color = Color(0.21960784, 0.32156864, 0.41568628, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="BackToMenuButton" type="Button" parent="."]
 offset_left = 35.0
@@ -12,4 +26,34 @@ offset_right = 179.0
 offset_bottom = 102.0
 text = "Back to menu"
 
+[node name="FullscreenButton" type="CheckButton" parent="."]
+offset_left = 509.0
+offset_top = 152.0
+offset_right = 601.0
+offset_bottom = 219.0
+
+[node name="Label" type="Label" parent="FullscreenButton"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = -36.0
+offset_right = 133.0
+offset_bottom = -13.0
+text = "Fullscreen mode"
+
+[node name="ResolutionOptionButton" type="OptionButton" parent="."]
+offset_left = 507.0
+offset_top = 308.0
+offset_right = 651.0
+offset_bottom = 375.0
+
+[node name="Label" type="Label" parent="ResolutionOptionButton"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -39.0
+offset_right = 145.0
+offset_bottom = -16.0
+text = "Resolution Option"
+
 [connection signal="pressed" from="BackToMenuButton" to="." method="_on_back_to_menu_button_pressed"]
+[connection signal="toggled" from="FullscreenButton" to="." method="_on_fullscreen_button_toggled"]
+[connection signal="item_selected" from="ResolutionOptionButton" to="." method="_on_resolution_option_button_item_selected"]

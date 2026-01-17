@@ -1,0 +1,6 @@
+res://scripts/ui/screens/Settings.gd
+res://scenes/Settings.tscn
+res://scenes/MainMenu.tscn
+res://scenes/ModeSelectMenu.tscn
+res://scripts/game/Card.gd
+res://scripts/game/Game_VS_Comp.gd
