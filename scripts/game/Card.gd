@@ -72,7 +72,7 @@ func stop_drag():
 	z_index = start_z_index
 	active_card = null
 	if dropzone.mouse_inside:
-		if get_parent().get_parent().is_my_turn:
+		if get_parent().get_parent().who_goes[Globals.player_count-1] == true:
 			print("stop drag")
 			global_position = dropzone.global_position
 			get_parent().get_parent().check(self)
