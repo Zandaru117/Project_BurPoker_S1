@@ -54,6 +54,20 @@ offset_right = 145.0
 offset_bottom = -16.0
 text = "Resolution Option"
 
+[node name="NumberOfPlayers" type="OptionButton" parent="."]
+offset_left = 507.0
+offset_top = 420.0
+offset_right = 651.0
+offset_bottom = 487.0
+
+[node name="Label" type="Label" parent="NumberOfPlayers"]
+layout_mode = 0
+offset_top = -30.0
+offset_right = 145.0
+offset_bottom = -7.0
+text = "Number of players"
+
 [connection signal="pressed" from="BackToMenuButton" to="." method="_on_back_to_menu_button_pressed"]
 [connection signal="toggled" from="FullscreenButton" to="." method="_on_fullscreen_button_toggled"]
 [connection signal="item_selected" from="ResolutionOptionButton" to="." method="_on_resolution_option_button_item_selected"]
+[connection signal="item_selected" from="NumberOfPlayers" to="." method="_on_number_of_players_item_selected"]

@@ -15,6 +15,8 @@ var trump_string: String
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	print("Игра запущена! Количество игроков из настроек: ", Globals.player_count)
+	# Здесь вы можете использовать Globals.player_count для спавна персонажей
 	trump = randi_range(0, 3)
 	if trump == 0: trump_string = "Hearts"
 	if trump == 1: trump_string = "Diamonds"
