@@ -29,18 +29,21 @@ func _ready() -> void:
 	#for i in range(deck.cards.size()):
 	#	deck.cards[i].change_position(Vector2(35+i*100,35+i*100))
 	#	#print(deck.cards[i].suit)
-	
-	for i in range(number_of_players-1):
+	for i in range(Globals.player_count-1):
 		var enemy_hand: Hand = hand_scene.instantiate()
 		hands.append(enemy_hand)
-		hands[i].hand_position = Vector2(500, 100 + 0*400)
+		hands[i].hand_position = Vector2(500-300*sin(2*PI/(Globals.player_count)*(i+1)), 300+200*cos(2*PI/(Globals.player_count)*(i+1)))
+		#print(sin(2*PI/(Globals.player_count)))
+		#print(2*PI/(Globals.player_count))
+		#print(hands[i].hand_position)
 		add_child(hands[i])
 		#print("POOP %s" % [hands[i].hand_position])
 		hands[i].deal_cards(false, enemy_dropzone)
 	
-	
+	print(hands)
 	player_hand = hand_scene.instantiate()
 	player_hand.hand_position = Vector2(500, 550)
+	#player_dropzone.position = Vector2(100, 100)
 	player_hand.is_player_hand = true
 	add_child(player_hand)
 	player_hand.deal_cards(true, player_dropzone)

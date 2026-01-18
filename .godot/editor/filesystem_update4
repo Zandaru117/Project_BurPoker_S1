@@ -1,6 +1,2 @@
-res://scripts/game/Card.gd
 res://scripts/game/Game_VS_Comp.gd
-res://scripts/ui/screens/Settings.gd
 res://scenes/GameVSComp.tscn
-res://scripts/game/core/GameGlobals.gd
-res://scenes/Settings.tscn
