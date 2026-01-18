@@ -1,2 +1,5 @@
 res://scripts/game/Game_VS_Comp.gd
 res://scenes/GameVSComp.tscn
+res://scripts/game/Hand.gd
+res://scenes/Hand.tscn
+res://scenes/DropZone.tscn

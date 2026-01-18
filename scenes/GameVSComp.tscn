@@ -31,6 +31,7 @@ metadata/_custom_type_script = "uid://bbw17kg7dhx3w"
 position = Vector2(476, 310)
 
 [node name="Enemy_DropZone" parent="." instance=ExtResource("6_ihu2o")]
+visible = false
 position = Vector2(640, 310)
 
 [node name="Score" type="Label" parent="."]

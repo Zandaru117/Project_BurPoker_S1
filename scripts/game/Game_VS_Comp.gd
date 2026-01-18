@@ -2,11 +2,13 @@ extends Node2D
 @onready var deck: Deck = $Deck
 @onready var hand: Hand = $Hand
 @export var hand_scene: PackedScene
+@export var enemy_drop_zone_scene: PackedScene = preload("res://scenes/DropZone.tscn")
 @onready var player_dropzone: DropZone = $Player_DropZone
 @onready var enemy_dropzone: DropZone = $Enemy_DropZone
 @onready var screen_score: Label = $Score
 
 var hands: Array[Hand] = []
+var enemy_dropzones: Array[DropZone]
 var is_my_turn: bool = true
 var number_of_players: int = 2
 var player_hand: Hand
@@ -30,6 +32,13 @@ func _ready() -> void:
 	#	deck.cards[i].change_position(Vector2(35+i*100,35+i*100))
 	#	#print(deck.cards[i].suit)
 	for i in range(Globals.player_count-1):
+		var enemy_drop_zone: DropZone = enemy_drop_zone_scene.instantiate()
+		
+		enemy_drop_zone.position = Vector2(600-(140*Globals.player_count+10*(i+1))/2 + 140*(i+1)+10*(i+1), 310) 
+		print("Инициировано ", enemy_drop_zone, " Позиция: ", enemy_drop_zone.position)
+		enemy_dropzones.append(enemy_drop_zone)
+		add_child(enemy_dropzones[i])
+	for i in range(Globals.player_count-1):
 		var enemy_hand: Hand = hand_scene.instantiate()
 		hands.append(enemy_hand)
 		hands[i].hand_position = Vector2(500-300*sin(2*PI/(Globals.player_count)*(i+1)), 300+200*cos(2*PI/(Globals.player_count)*(i+1)))
@@ -38,12 +47,12 @@ func _ready() -> void:
 		#print(hands[i].hand_position)
 		add_child(hands[i])
 		#print("POOP %s" % [hands[i].hand_position])
-		hands[i].deal_cards(false, enemy_dropzone)
+		hands[i].deal_cards(false, enemy_dropzones[i])
 	
 	print(hands)
 	player_hand = hand_scene.instantiate()
-	player_hand.hand_position = Vector2(500, 550)
-	#player_dropzone.position = Vector2(100, 100)
+	player_hand.hand_position = Vector2(500, 550) #500, 550
+	player_dropzone.position = Vector2(600-(140*Globals.player_count+10)/2, 310)
 	player_hand.is_player_hand = true
 	add_child(player_hand)
 	player_hand.deal_cards(true, player_dropzone)
